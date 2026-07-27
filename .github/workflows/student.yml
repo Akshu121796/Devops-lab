@@ -1,0 +1,50 @@
+name: Student Management App CI
+ 
+on:
+
+  push:
+
+    branches:
+
+      - main
+
+  pull_request:
+
+    branches:
+
+      - main
+ 
+jobs:
+
+  validate:
+
+    runs-on: ubuntu-latest
+ 
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+ 
+      - name: Display Project Files
+        run: ls -la
+ 
+      - name: Check HTML File
+        run: test -f index.html
+ 
+      - name: Check CSS File
+        run: test -f style.css
+ 
+      - name: Check JavaScript File
+        run: test -f script.js
+ 
+      - name: Upload Website Files
+        uses: actions/upload-artifact@v4
+
+        with:
+          name: student-management-app
+
+          path: |
+            index.html
+            style.css
+            script.js
+ 
