@@ -1,1 +1,0 @@
-Hello, we are learning basic commands of Git and GitHub

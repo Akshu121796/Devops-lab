@@ -1,0 +1,27 @@
+services:
+
+  web:
+    build: ./app
+    container_name: shopping_web
+
+    ports:
+      - "3000:5000"
+
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    container_name: shopping_db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: shopdb
+      MYSQL_USER: shopuser
+      MYSQL_PASSWORD: shop_password
+
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
