@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: student-management-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: student-management
+
+  template:
+    metadata:
+      labels:
+        app: student-management
+
+    spec:
+      containers:
+      - name: smscontainer
+        image: sms:latest
+        ports:
+          - containerPort: 80

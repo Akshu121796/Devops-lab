@@ -1,5 +1,4 @@
 services:
-
   web:
     build: ./app
     container_name: shopping_web
